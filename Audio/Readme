@@ -1,0 +1,36 @@
+
+ sudo git clone http://people.csail.mit.edu/hubert/git/pyaudio.git
+
+sudo apt-get install libportaudio0 libportaudio2 libportaudiocpp0 portaudio19-dev
+
+sudo apt-get install python-dev
+
+cd pyaudio
+
+sudo python setup.py install
+
+test.py This is for recording something from the mic
+
+fft.py This is to perform FFT on the wav file
+
+
+
+The approach would be as follow
+
+1)Obtain the Audio Input
+2)Do FFT over the Audio Input 
+3)FFT will return a 2D matrix of
+X axis -Time
+Y axis -Freq
+Z axis -Amplitude which most likely would be Complex 
+
+4)Find the mean of the FFT for different data sets.
+  I came  across this on stack overflow .They use this technique for classifying music into gener's.
+
+  So the idea is say rock music which has primarily Bass as the the frequncy range with max amplitude .
+  Now when you subtract the mean from the data set corresponding to that of Rock , it will yield primarily in the frequency range of that of Bass.Now using a good classifier like SVM we can easily segregate this into groups.
+
+  I assume that this could be extended to the problem at hand .
+
+
+
